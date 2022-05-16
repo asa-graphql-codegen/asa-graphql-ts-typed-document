@@ -4,8 +4,9 @@
   "description": "POC graphql-code-generator plugin for typed documents. Forked from https://github.com/dotansimha/graphql-code-generator",
   "repository": {
     "type": "git",
-    "url": "https://github.com/asakusuma/asa-graphql-ts-typed-document.git"
+    "url": "https://github.com/asa-graphql-codegen/asa-graphql-ts-typed-document.git"
   },
+  "homepage": "https://github.com/asa-graphql-codegen/asa-graphql-ts-typed-document",
   "license": "MIT",
   "scripts": {
     "build": "tsc",
