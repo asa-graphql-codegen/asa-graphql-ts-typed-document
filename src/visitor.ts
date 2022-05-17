@@ -15,7 +15,8 @@ export interface TypeScriptDocumentNodesVisitorPluginConfig extends RawClientSid
 }
 
 // TODO This probably gonna be a perf bottleneck. Probably need to somehow ensure source file location is available
-// natively in the visitor for the OperationDefinition method
+// natively in the visitor for the OperationDefinition method. Current code is OK for now as it's only called
+// when an error is thrown for anonymous queries.
 function generateOperationToSourceMap(documents: Types.DocumentFile[]): Map<DefinitionNode, string> {
   const map = new Map<DefinitionNode, string>();
   documents.forEach((doc) => {
@@ -38,7 +39,6 @@ export class TypeScriptDocumentNodesVisitor extends ClientSideBaseVisitor<
   TypeScriptDocumentNodesVisitorPluginConfig,
   ClientSideBasePluginConfig
 > {
-  private docSourceMap: Map<DefinitionNode, string>;
   constructor(
     schema: GraphQLSchema,
     fragments: LoadedFragment[],
@@ -56,8 +56,6 @@ export class TypeScriptDocumentNodesVisitor extends ClientSideBaseVisitor<
       {},
       documents
     );
-
-    this.docSourceMap = generateOperationToSourceMap(documents);
   }
 
   // Only return locally defined fragments. Ignore imported fragments.
@@ -70,7 +68,8 @@ export class TypeScriptDocumentNodesVisitor extends ClientSideBaseVisitor<
   }
 
   private getOperationLocation(node: OperationDefinitionNode): string | undefined {
-    return this.docSourceMap.get(node);
+    const docSourceMap = generateOperationToSourceMap(this._documents);
+    return docSourceMap.get(node);
   }
 
   protected _generateFragment(fragmentDocument: FragmentDefinitionNode) {
