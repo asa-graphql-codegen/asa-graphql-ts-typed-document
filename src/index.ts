@@ -5,7 +5,7 @@ import {
   LoadedFragment,
   DocumentMode
 } from '@graphql-codegen/visitor-plugin-common';
-import { TypeScriptDocumentNodesVisitor, TypeScriptDocumentNodesVisitorPluginConfig } from './visitor';
+import { TypeScriptDocumentNodesVisitor, TypeScriptDocumentNodesVisitorPluginConfig } from './visitor.js';
 
 function getUsedFragments(node: DocumentNode): string[] {
   const imports: string[] = [];
