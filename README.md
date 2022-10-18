@@ -1,5 +1,7 @@
 # asa-graphql-ts-typed-document
 
+[![CI](https://github.com/asa-graphql-codegen/asa-graphql-ts-typed-document/actions/workflows/ci.yml/badge.svg)](https://github.com/asa-graphql-codegen/asa-graphql-ts-typed-document/actions/workflows/ci.yml)
+
 POC graphql-code-generator plugin for typed documents
 
 This repo was forked from: https://github.com/dotansimha/graphql-code-generator/tree/master/packages/plugins/typescript/typed-document-node
