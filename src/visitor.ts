@@ -78,7 +78,7 @@ export class TypeScriptDocumentNodesVisitor extends ClientSideBaseVisitor<
 
   public OperationDefinition(node: OperationDefinitionNode): string {
     const documentVariableName = this.getOperationVariableName(node);
-    const isAnonymousQuery = !(!!node.name);
+    const isAnonymousQuery = !(node.name);
 
     if (isAnonymousQuery) {
       // Codgen doesn't currently support public assess to the name of operations variables
