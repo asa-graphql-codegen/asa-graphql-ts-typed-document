@@ -5,17 +5,18 @@ on:
     branches:
       - main
       - 'v*' # older version branches
+    tags:
+      - '*'
   pull_request: {}
 
 jobs:
-  build:
-
+  test:
+    name: Tests
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [16.x, 18.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+        node: ['16', '18']
 
     steps:
     - uses: actions/checkout@v3
