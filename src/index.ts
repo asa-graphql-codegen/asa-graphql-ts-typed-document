@@ -10,8 +10,8 @@ import { TypeScriptDocumentNodesVisitor, TypeScriptDocumentNodesVisitorPluginCon
 function getUsedFragments(node: DocumentNode): string[] {
   const imports: string[] = [];
   visit(node, {
-    leave: {
-      FragmentSpread(node) {
+    FragmentSpread: {
+      leave(node: { name: { value: string; }; }) {
         imports.push(node.name.value);
       }
     }
@@ -81,7 +81,7 @@ export const plugin: PluginFunction<TypeScriptDocumentNodesVisitorPluginConfig> 
 
   return {
     prepend: allAst.definitions.length === 0 ? [] : visitor.getImports().concat(generateFragmentImports(allAst, nameMapper, config.fragmentImportsSourceMap)),
-    content: [visitor.fragments, ...visitorResult.definitions.filter(t => typeof t === 'string')].join('\n'),
+    content: [visitor.fragments, ...visitorResult.definitions.filter((t: any) => typeof t === 'string')].join('\n'),
   };
 };
 
