@@ -10,7 +10,7 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc && tsc -p ./tsconfig.cjs.json",
-    "lint": "eslint **/*.ts",
+    "lint": "eslint {tests,src}/**/*.ts",
     "test": "jest --no-watchman --config ./jest.config.cjs",
     "prepack": "yarn build",
     "test:debug": "node --inspect-brk node_modules/.bin/jest --runInBand --no-watchman --config ./jest.config.cjs"
@@ -21,8 +21,10 @@
   "dependencies": {
     "@graphql-codegen/plugin-helpers": "^2.7.1",
     "@graphql-codegen/visitor-plugin-common": "^2.12.2",
+    "@typescript-eslint/eslint-plugin": "^5.42.1",
     "auto-bind": "~4.0.0",
     "change-case-all": "^1.0.14",
+    "eslint": "^8.27.0",
     "tslib": "~2.4.0"
   },
   "main": "dist/cjs/src/index.js",
@@ -56,10 +58,16 @@
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-typescript": "^7.16.7",
     "@types/jest": "^29.2.0",
+    "@typescript-eslint/parser": "^5.42.1",
     "babel-jest": "^29.2.1",
+    "eslint-plugin-import": "^2.26.0",
     "graphql": "^14.7.0",
     "jest": "^29.2.1",
     "ts-jest": "^29.0.3",
     "typescript": "^4.8.4"
+  },
+  "volta": {
+    "node": "18.12.1",
+    "yarn": "3.2.4"
   }
 }
