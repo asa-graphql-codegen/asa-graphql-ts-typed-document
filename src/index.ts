@@ -76,7 +76,7 @@ export const plugin: PluginFunction<TypeScriptDocumentNodesVisitorPluginConfig> 
   const visitor = new TypeScriptDocumentNodesVisitor(schema, allFragments, config, documents);
   const visitorResult = oldVisit(allAst, { leave: visitor });
   const nameMapper = (name: string) => {
-    return name + visitor.getFragmentSuffix(name);
+    return visitor.convertName(name) + visitor.getFragmentSuffix(name);
   };
 
   return {
