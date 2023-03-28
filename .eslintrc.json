@@ -49,5 +49,12 @@
       }
     }
   ],
-  "ignorePatterns": ["dist", "node_modules", "dev-test", "website", "test-files", "examples/front-end"]
+  "ignorePatterns": [
+    "dist",
+    "node_modules",
+    "dev-test",
+    "website",
+    "test-files",
+    "examples/front-end"
+  ]
 }

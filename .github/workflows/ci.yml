@@ -4,9 +4,9 @@ on:
   push:
     branches:
       - main
-      - 'v*' # older version branches
+      - "v*" # older version branches
     tags:
-      - '*'
+      - "*"
   pull_request: {}
 
 jobs:
@@ -16,16 +16,16 @@ jobs:
 
     strategy:
       matrix:
-        node-version: ['^14.10', '16', '18']
+        node-version: ["^14.10", "16", "18"]
 
     steps:
-    - uses: actions/checkout@v3
-    - uses: volta-cli/action@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: install dependencies
-      run: yarn
-    - name: lint
-      run: yarn lint
-    - name: test
-      run: yarn test
+      - uses: actions/checkout@v3
+      - uses: volta-cli/action@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: install dependencies
+        run: yarn
+      - name: lint
+        run: yarn lint
+      - name: test
+        run: yarn test
