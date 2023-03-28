@@ -8,10 +8,13 @@
  * exports all four formats to be used in tests.
  */
 
-const GraphQL = require('graphql');
-const fs = require('fs');
-const path = require('path');
-const schemaText = fs.readFileSync(path.join(__dirname, 'schema.graphql'), 'utf8');
+const GraphQL = require("graphql");
+const fs = require("fs");
+const path = require("path");
+const schemaText = fs.readFileSync(
+  path.join(__dirname, "schema.graphql"),
+  "utf8"
+);
 const schemaObject = GraphQL.buildSchema(schemaText);
 const schemaAst = GraphQL.parse(schemaText);
 
