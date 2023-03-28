@@ -12,7 +12,7 @@
     "target": "es2018",
     "lib": ["es6", "esnext", "es2015", "dom"],
     "suppressImplicitAnyIndexErrors": true,
-    "moduleResolution": "node",
+    "moduleResolution": "node16",
     "emitDecoratorMetadata": true,
     "sourceMap": true,
     "declaration": true,
@@ -25,5 +25,10 @@
     "paths": {}
   },
   "include": ["src", "tests"],
-  "exclude": ["**/tests/test-files", "**/tests/test-documents", "**/dist", "**/temp"]
+  "exclude": [
+    "**/tests/test-files",
+    "**/tests/test-documents",
+    "**/dist",
+    "**/temp"
+  ]
 }
