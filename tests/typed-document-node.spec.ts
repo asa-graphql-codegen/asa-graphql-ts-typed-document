@@ -1,6 +1,6 @@
 import { Types } from '@graphql-codegen/plugin-helpers';
 import { buildSchema, parse } from 'graphql';
-import { plugin } from '../src';
+import { plugin } from '../src/index.js';
 import * as ts from 'typescript';
 
 function findAncestor(node: ts.Node, visitor: (n: ts.Node) => boolean) {

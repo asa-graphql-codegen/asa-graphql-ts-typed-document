@@ -1,6 +1,10 @@
 # asa-graphql-ts-typed-document
 
-## 2.0.0 
+## 3.0.0
+
+- flips the switch and makes this library an esm library by default
+
+## 2.0.0
 
 - work with the graphql@16.6.0 visitor logic.
 
