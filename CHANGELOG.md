@@ -1,5 +1,9 @@
 # asa-graphql-ts-typed-document
 
+## 4.0.0
+
+- downstream consumers can't pick which to pick, removing type: module.
+
 ## 3.0.0
 
 - flips the switch and makes this library an esm library by default
